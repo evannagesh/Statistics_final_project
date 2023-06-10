@@ -1,0 +1,113 @@
+The Hot Hand Theory
+In this project, we study a paper written in 1985 by three psychological researchers, Thomas
+Gilovich, Robert Vallone, and Amos Tversky, that examines shooting data from different contexts in
+basketball to see if there is statistically significant evidence for a theory in basketball known as the “hot
+hand theory.” Polling data from the paper confirm that there’s a widespread perception among fans,
+players, and coaches that players are more likely to score after making a shot or several shots. This
+phenomenon is known as “streak shooting” or “having the hot hand,” and despite the belief in its
+existence, the paper concludes that statistical evidence of its occurrence is questionable. This paper pokes
+serious holes in the belief in streak shooting by examining field goal and free throw data from the NBA
+and a controlled experiment that contrasted the predictions of Cornell varsity basketball players (which
+frequently aligned with the hot hand theory) with their actual shooting performance.
+The first study examined field goal percentages across 48 Philadelphia 76ers home games. The
+data was organized into the percentages of scoring conditioned on the players’ previous shots. For
+example, one column in the table had the percentage of shots made following two misses. Treating the
+differences between the percentages of scoring following X hits and following X misses for each player
+as observations, it was found that these differences are in fact statistically significant but in such a
+direction counter to the hot hand theory. For example, if you take the differences of columns 6 and 4 of
+Table 1 and report this as a new column of Table 1, you get the following set of differences: -0.07, 0.02, 0,
+-0.05, -0.02, -0.08, -0.05, -0.01, -0.14. Assuming that these differences come from a normal distribution,
+if the hot hand theory is true, you’d expect the mean of this normal distribution to be positive. However,
+the sample mean of these differences is approximately -0.044, and the sample standard deviation is
+approximately 0.0488. Calculating a t statistic of the form t = (x_bar - mu_0)/(s/sqrt(n)), where in this
+case x_bar = -0.044, s = 0.0488, mu_0 = 0, and n = 9, you get t to be about -2.73, which is close to the
+-2.79 paired t statistic stated in the paper (probably different only due to rounding error), which was
+significant at the 5% level.
+The authors then performed a Wald-Wolfowitz runs test on the data. A run is a series of either
+consecutive hits or misses. A certain number of runs would be expected due to chance if successive shots
+are independent, and a Wald-Wolfowitz runs test is a nonparametric asymptotically normal test that can be
+used to see if the observed number of runs has a statistically significant departure from what is expected
+due to chance. Given a certain number of hits and misses, and assuming shots are independent, the mean
+and variance of the number of runs can be calculated, and the number of runs has an asymptotic normal
+distribution with this mean and variance. Thus, an asymptotic normal test can be done to see if the
+observed number of runs is statistically significantly lower than would be expected for each player due to
+chance, as would be implied by the streak shooting hypothesis. GVT found that for 8 out of the 9
+observed players, there was no statistically significant difference, and for the outlier, there was statistical
+significance in the opposite direction to that implied by the hot hand theory.
+Another approach the authors took toward examining the hot hand theory was a test of
+stationarity by examining groups of four consecutive shots. They categorized these groups as high (3-4
+hits), moderate (2 hits), or low performance (0-1 hits). They noted that, given, for example, a player’s hit
+rate of 0.5 and assuming the independence of successive shots, the expected proportions of high,
+moderate, and low performance groups would be 5/16, 6/16, and 5/16, respectively. If the hot-hand theory
+is true, one would expect statistically significantly higher proportions of high and low performance groups
+than would be predicted assuming independence of successive shots. One way to investigate this is to do a
+𝜒
+2 goodness of fit test to see if a multinomial distribution with parameters 5/16, 6/16, 5/16 is a good model
+for the joint distribution of the number of groups of each of the 3 categories. If you cannot reject this null
+hypothesis, then this would cast doubt on the hot-hand theory. Performing this test on each player 3 times,
+each time starting groups of 4 shots at different positions of a player’s shot record modulo 4, the authors
+found that in no case was there a 𝜒
+2 statistic large enough to reject the null hypothesis. This provided
+additional evidence against the hot-hand theory.
+Despite the evidence contradictory to the hot hand theory, the authors acknowledge that the data
+examined up to this point is “contaminated” by various factors that arise in live game situations such as
+shot selection, player confidence, and the level of defensive pressure from the opposing teams. The
+authors subsequently examine data from shots taken in an environment controlled for no defense by
+examining free throw data from the Boston Celtics. As in the previous study on field goal data, if the hot
+hand theory were true, we would expect a player to have higher scoring percentages on the second free
+throw following a hit on the first than a miss. However, the authors didn’t find a statistically significant
+difference compared to the null hypothesis of independence between free throws. Another study to
+account for the variability of live game scenarios was conducted in a controlled shooting environment
+with Cornell University basketball players. Conducting the same tests as for the NBA field goal data, the
+authors found no statistically significant evidence to support the hot hand theory with the exception of one
+player.
+A new metric examined by the researchers was predictability, a direct comparison between the
+Cornell players’ beliefs about whether they would make the subsequent shot and the actual result of the
+shot. They obtained data from the shooter and asked an observer to bet on the outcome of the upcoming
+shot. The betting strategy from both the players and the observers reflected a belief in the hot hand theory
+with both wagering higher probabilities of a hit following a previous hit. The average correlation between
+the prediction data and the results was 0.02 with only 5 out of 26 players achieving a statistically
+significant positive correlation, seeming to the researchers to reflect that players didn’t predict their shots
+well because of an erroneous belief in the hot hand theory.
+All in all, the authors of the paper collected data on basketball players in a variety of contexts,
+and, using a variety of statistical tests, claimed that there’s no statistically significant evidence to support
+the hot hand theory. They hypothesized that the widespread belief in the hot hand could be attributed to
+streaks of shots being particularly memorable or to bias in people’s perception of chance, where they can
+have a tendency to believe in a “law of small numbers” where they expect a series of fair coin flips to
+have equal numbers of heads and tails even in the window of a small number of flips.
+However, more recent research has challenged this. One article (Miller and Sanjurjo) details a
+small but significant selection bias in the original paper. The authors of the original paper operate under
+the erroneous assumption that, if you have a sequence of independent fair coin flips with streaks of, say 3
+heads, examine where the streaks of heads are, and put the flips immediately following these streaks into
+a bucket, the probability that you will draw heads from the bucket is counterintuitively less than 50%. As
+the article argues, suppose you do 100 coin flips, and that flips 39, 40, and 41 happen to be H. Suppose
+you happen to draw flip 42 from the bucket at random. If 42 is H, then the only restriction imposed by this
+information is that flip 43 has to be in the bucket, since 40, 41, and 42 are 3 heads. However, if 42 is T,
+then the restrictions are imposed that 43, 44, and 45 are not in the bucket. Because there are more
+possibilities for what could have happened in the situation where 42 is H, you are less likely to have
+selected flip 42 in particular from the bucket if it was H than if it was T, so with Bayesian reasoning, the
+probability is lower that 42 is H given you select 42 from the bucket than that 42 is T. This bias
+undermines the assumption of the original paper in their paired t tests that the mean difference between
+the conditional probabilities of a hit given X hits and of a hit given X misses should be 0 under the null
+hypothesis, and as Miller and Sanjurjo point out, accounting for this bias makes the hot hand more
+plausible than GVT claim.
+However, it would seem like the runs and 𝜒
+2
+tests GVT did, because they do not involve
+conditional probabilities, would not be as contaminated, if at all, by the bias pointed out by Miller and
+Sanjurjo. Thus, perhaps some of GVT’s results are still valid, but perhaps a better interpretation of them
+than to conclude that the hot hand isn’t real is to conclude that the hot hand is not something exhibited by
+many players, as is suggested in an article by Pelechrinis and Winston.
+Citations
+1. “The hot hand in basketball: On the misperception of random sequences,” Thomas Gilovich,
+Robert Vallone, and Amos Tversky,
+https://labs.la.utexas.edu/gilden/files/2016/04/Gilo.Vallone.Tversky.pdf
+2. Wikipedia, Wald-Wolfowitz Runs Test,
+https://en.wikipedia.org/wiki/Wald%E2%80%93Wolfowitz_runs_test
+3. The Conversation, “The ‘hot hand’ is a real basketball phenomenon – but only some players have
+the ability to go on these basket-making streaks”, Konstantinos Pelechrinis and Wayne Winston,
+https://theconversation.com/the-hot-hand-is-a-real-basketball-phenomenon-but-only-some-player
+s-have-the-ability-to-go-on-these-basket-making-streaks-179082
+4. The Conversation, “Momentum isn’t magic – vindicating the hot hand with the mathematics of
+streaks”, Joshua Miller and Adam Sanjurjo, Momentum isn't magic – vindicating the hot hand
+with the mathematics of streaks (theconversation.com)
